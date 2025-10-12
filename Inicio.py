@@ -7,13 +7,14 @@ from nltk.stem import SnowballStemmer
 
 st.title("🔍 Demo TF-IDF en Español")
 
+image = Image.open('vacaciones.jpeg') 
+st.image(image,width=300)
 # Documentos de ejemplo
-default_docs = """El perro ladra fuerte en el parque.
-El gato maúlla suavemente durante la noche.
-El perro y el gato juegan juntos en el jardín.
-Los niños corren y se divierten en el parque.
-La música suena muy alta en la fiesta.
-Los pájaros cantan hermosas melodías al amanecer."""
+default_docs = """La familia viajó a la playa para disfrutar del sol y el mar.
+Los amigos acamparon en la montaña durante el fin de semana.
+En el pueblo, los turistas probaron platos típicos y compraron recuerdos.
+Los niños construyeron castillos de arena en la orilla.
+En la noche, todos observaron las estrellas junto a una fogata."""
 
 # Stemmer en español
 stemmer = SnowballStemmer("spanish")
@@ -34,30 +35,30 @@ col1, col2 = st.columns([2, 1])
 
 with col1:
     text_input = st.text_area("📝 Documentos (uno por línea):", default_docs, height=150)
-    question = st.text_input("❓ Escribe tu pregunta:", "¿Dónde juegan el perro y el gato?")
+    question = st.text_input("❓ Escribe tu pregunta:", "¿Dónde viajó la familia de vacaciones?")
 
 with col2:
     st.markdown("### 💡 Preguntas sugeridas:")
     
     # NUEVAS preguntas optimizadas para mayor similitud
-    if st.button("¿Dónde juegan el perro y el gato?", use_container_width=True):
-        st.session_state.question = "¿Dónde juegan el perro y el gato?"
+    if st.button("¿Dónde viajó la familia de vacaciones?", use_container_width=True):
+        st.session_state.question = "¿Dónde viajó la familia de vacaciones?"
         st.rerun()
     
-    if st.button("¿Qué hacen los niños en el parque?", use_container_width=True):
-        st.session_state.question = "¿Qué hacen los niños en el parque?"
+    if st.button("¿Qué hicieron los amigos durante el fin de semana?", use_container_width=True):
+        st.session_state.question = "¿Qué hicieron los amigos durante el fin de semana?"
         st.rerun()
         
-    if st.button("¿Cuándo cantan los pájaros?", use_container_width=True):
-        st.session_state.question = "¿Cuándo cantan los pájaros?"
+    if st.button("¿Qué compraron los turistas en el pueblo?", use_container_width=True):
+        st.session_state.question = "¿Qué compraron los turistas en el pueblo?"
         st.rerun()
         
-    if st.button("¿Dónde suena la música alta?", use_container_width=True):
-        st.session_state.question = "¿Dónde suena la música alta?"
+    if st.button("¿Qué construyeron los niños en la orilla?", use_container_width=True):
+        st.session_state.question = "¿Qué construyeron los niños en la orilla?"
         st.rerun()
         
-    if st.button("¿Qué animal maúlla durante la noche?", use_container_width=True):
-        st.session_state.question = "¿Qué animal maúlla durante la noche?"
+    if st.button("¿Qué hicieron todos durante la noche?", use_container_width=True):
+        st.session_state.question = "¿Qué hicieron todos durante la noche?"
         st.rerun()
 
 # Actualizar pregunta si se seleccionó una sugerida

@@ -6,7 +6,7 @@ import re
 from nltk.stem import SnowballStemmer
 from PIL import Image
 
-st.title("🔍 Demo TF-IDF en Español")
+st.title("Unas vacaciones en familia🌞👨‍👩‍👧‍👦")
 
 image = Image.open('vacaciones.jpeg') 
 st.image(image,width=300)
